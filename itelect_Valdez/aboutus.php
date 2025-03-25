@@ -10,11 +10,15 @@ if (isset($_GET['editid'])) {
         $stmtSel->execute($selData);
 
         $rowSel = $stmtSel->fetch();
-        $titulo = $rowSel[1];  
-        $laman = $rowSel[2];  
+        $titulo = ($rowSel[1]);  
+        $laman = ($rowSel[2]);  
     } catch (\Throwable $th) {
         //throw $th;
     }
+}
+else{
+    $titulo="";
+    $laman ="";
 }
 ?>
 
@@ -71,6 +75,8 @@ if (isset($_GET['editid'])) {
                             type="button" role="tab" aria-controls="data-tab-pane" aria-selected="false">Data Entry</button>
                     </li>
                 </ul>
+
+                <!--Tab Panels-->
                 <div class="tab-content" id="myTabContent">
                     <!--Table-->
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
@@ -89,13 +95,6 @@ if (isset($_GET['editid'])) {
                                             <th>Content</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Title</th>
-                                            <th>Content</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php
                                         $sqlAbout = "SELECT * FROM aboutus";
@@ -141,7 +140,7 @@ if (isset($_GET['editid'])) {
                             <div class="mb-3">
                                 <label for="txtTitle" class="form-label">Title:</label>
                                 <input type="text" class="form-control" name="txtTitle" id="txtTitle" required
-                                    value='<?php echo htmlspecialchars($titulo); ?>'>
+                                value='<?php echo htmlspecialchars($titulo); ?>'>
                             </div>
 
                             <div class="mb-3">

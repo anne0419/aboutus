@@ -13,6 +13,7 @@ if (isset($_GET['delid'])) {
         echo $th->getMessage();
     }
 }
+
 if (isset($_POST['txtTitle'])) {
     if (isset($_POST['txtTitle'])) {
     $title = htmlspecialchars(trim($_POST['txtTitle']));
@@ -30,6 +31,5 @@ if (isset($_POST['txtTitle'])) {
     } catch (PDOException $th) {
         echo $th->getMessage();
     }
-
 }
 ?>
